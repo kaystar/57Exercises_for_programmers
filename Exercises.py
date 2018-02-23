@@ -1,3 +1,7 @@
+# !python3
+
+# numerical calculator
+
 bool = True
 solution = 0
 

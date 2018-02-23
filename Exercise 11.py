@@ -1,3 +1,7 @@
+# !python3
+
+# simple interest calculator
+
 principal_amount = int(input("Input the principle amount: "))
 interest = float(input("Input the interest rate: "))
 years = int(input("Input the number of years: "))

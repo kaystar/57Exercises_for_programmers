@@ -1,3 +1,6 @@
+# !python3
+
+# Alcohol Content calculator
 
 menDist = 0.73
 womenDist = 0.66

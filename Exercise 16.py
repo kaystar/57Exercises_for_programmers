@@ -1,3 +1,7 @@
+# !python3
+
+# Legal age calculator
+
 legal_age = 16
 
 def yes():
