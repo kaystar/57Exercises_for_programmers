@@ -7,6 +7,10 @@ def guessingGame():
     global guesses
     while True:
         user_choice = int(input("I have my number, whats your guess?: \n"))
+        if user_choice in past_guesses:
+            print("Oops, you've already guessed {} please choose a different number" . format(user_choice))
+            continue
+
         if (user_choice == cpu_guess):
             print("Well done, you've guessed correctly in {} guesses" .format(guesses))
             answer = input("Would you like to play again? [Yes/No]")
@@ -16,13 +20,15 @@ def guessingGame():
                 break
 
         elif (user_choice < cpu_guess):
-            print("Sorry, your guess is too low, please guess again.")
+            print("Sorry, your guess {} is too low, please guess again.".format(user_choice))
             guesses += 1
+            past_guesses.append(user_choice)
             continue
 
         elif (user_choice > cpu_guess):
-            print("Sorry, your guess is too high, please guess again.")
+            print("Sorry, your guess {} is too high, please guess again.".format(user_choice))
             guesses += 1
+            past_guesses.append(user_choice)
             continue
         return
 
@@ -30,6 +36,9 @@ def main():
     global guesses
     global max_no
     global cpu_guess
+    global past_guesses
+    past_guesses = []
+
     #max_no = 1
     guesses = 1
     print("Let's plat Guess the Number.")
