@@ -3,62 +3,11 @@
 # Exercise 32 - Guess the number game
 import random
 
-cpu_guess_easy = random.randint(1, 10)
-cpu_guess_normal = random.randint(1, 100)
-cpu_guess_hard = random.randint(1, 1000)
-#guesses = 1
-
-def easy():
-    while True:
-        global guesses
-        user_choice = int(input("I have my number, whats your guess?: \n"))
-        if (user_choice == cpu_guess_easy):
-            print("Well done, you've guessed correctly in {} guesses " .format(guesses))
-            answer = input("Would you like to play again? [Yes/No]")
-            if answer.lower() in ['y', 'yes']:
-                main()
-            elif answer.lower() in ['y', 'yes']:
-                break
-
-        elif (user_choice < cpu_guess_easy):
-            print("Sorry, your guess is too low, please guess again.")
-            guesses += 1
-            continue
-
-        elif (user_choice > cpu_guess_easy):
-            print("Sorry, your guess is too high, please guess again.")
-            guesses += 1
-            continue
-        return
-
-def normal():
-    while True:
-        global guesses
-        user_choice = int(input("I have my number, whats your guess?: \n"))
-        if (user_choice == cpu_guess_normal):
-            print("Well done, you've guessed correctly in {} guesses" .format(guesses))
-            answer = input("Would you like to play again? [Yes/No]")
-            if answer.lower() in ['y', 'yes']:
-                main()
-            elif answer.lower() in ['y', 'yes']:
-                break
-
-        elif (user_choice < cpu_guess_normal):
-            print("Sorry, your guess is too low, please guess again.")
-            guesses += 1
-            continue
-
-        elif (user_choice > cpu_guess_normal):
-            print("Sorry, your guess is too high, please guess again.")
-            guesses += 1
-            continue
-        return
-
-def hard():
+def guessingGame():
     global guesses
     while True:
         user_choice = int(input("I have my number, whats your guess?: \n"))
-        if (user_choice == cpu_guess_hard):
+        if (user_choice == cpu_guess):
             print("Well done, you've guessed correctly in {} guesses" .format(guesses))
             answer = input("Would you like to play again? [Yes/No]")
             if answer.lower() in ['y', 'yes']:
@@ -66,12 +15,12 @@ def hard():
             elif answer.lower() in ['y', 'yes']:
                 break
 
-        elif (user_choice < cpu_guess_hard):
+        elif (user_choice < cpu_guess):
             print("Sorry, your guess is too low, please guess again.")
             guesses += 1
             continue
 
-        elif (user_choice > cpu_guess_hard):
+        elif (user_choice > cpu_guess):
             print("Sorry, your guess is too high, please guess again.")
             guesses += 1
             continue
@@ -79,6 +28,9 @@ def hard():
 
 def main():
     global guesses
+    global max_no
+    global cpu_guess
+    #max_no = 1
     guesses = 1
     print("Let's plat Guess the Number.")
     try:
@@ -86,12 +38,19 @@ def main():
     except ValueError:
         print("Please enter a numerical value between 1 and 3")
         main()
+
     if difficulty == 1:
-        easy()
+        max_no = 10
+        cpu_guess = random.randint(1, max_no)
+        guessingGame()
     elif difficulty == 2:
-        normal()
+        max_no = 100
+        cpu_guess = random.randint(1, max_no)
+        guessingGame()
     elif difficulty == 3:
-        hard()
+        max_no = 1000
+        cpu_guess = random.randint(1, max_no)
+        guessingGame()
     else:
         print("I'm not too sure what you selected")
 
