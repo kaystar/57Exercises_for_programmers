@@ -1,6 +1,7 @@
 # !python3
 
 # Password Strength Indicator
+#ToDo This doesn't work so complete it
 
 recommendlength = 8
 
