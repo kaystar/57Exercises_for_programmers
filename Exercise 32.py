@@ -1,7 +1,9 @@
 # !python3
 
 # Exercise 32 - Guess the number game
+#ToDo Finish winning statement function
 import random
+import time
 
 def guessingGame():
     global guesses
@@ -13,6 +15,9 @@ def guessingGame():
 
         if (user_choice == cpu_guess):
             print("Well done, you've guessed correctly in {} guesses" .format(guesses))
+            time.sleep(2)
+            print("Your past guesses were {}" .format(past_guesses))
+            time.sleep(2)
             answer = input("Would you like to play again? [Yes/No]")
             if answer.lower() in ['y', 'yes']:
                 main()
@@ -31,6 +36,17 @@ def guessingGame():
             past_guesses.append(user_choice)
             continue
         return
+
+def winning_statement(i):
+    if i == 1:
+        print("You're a mind reader!")
+    elif i >= 2 and i <= 4:
+        print("Most Impressive")
+    elif i > 4 and i <= 6:
+        print("You can do better than that")
+    elif i >= 7:
+        print("Better luck next time")
+
 
 def main():
     global guesses
@@ -62,17 +78,6 @@ def main():
         guessingGame()
     else:
         print("I'm not too sure what you selected")
-
-def winning_statement(i):
-    if i == 1:
-        print("You're a mind reader!")
-    elif i >= 2 and i <= 4:
-        print("Most Impressive")
-    elif i > 4 and i <= 6:
-        print("You can do better than that")
-    elif i >= 7:
-        print("Better luck next time")
-
 
 if __name__ == "__main__":
     main()
