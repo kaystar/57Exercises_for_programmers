@@ -1,7 +1,7 @@
 # !python3
 #
 # Allergy score
-#ToDO finish this
+
 
 import time
 import pprint
@@ -20,10 +20,11 @@ allergens = {
 allergyList = []
 
 def calculate():
-    sum = 0
+    total = 0
     for i in allergyList:
         if i in allergens:
-            total = sum(allergens.values())
+            # total = sum(allergens.values())
+            total += allergens[i]
     print(total)
 
 
