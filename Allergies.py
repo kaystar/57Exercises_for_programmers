@@ -1,7 +1,7 @@
 # !python3
 #
 # Allergy score
-#ToDO finish this
+
 
 import time
 import pprint

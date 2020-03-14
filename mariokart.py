@@ -45,17 +45,12 @@ def calculate(first_player_scores, second_player_scores, p1, p2):
     for i in second_player_scores:
         if i in points:
             player_2_total += points[i]
+    print(player_2_total)
     
-    if player_1_total > player_2_total:
-        print("{} is the winner with {} points to {}, {} points!  ".format(p1, player_1_total, p2, player_2_total))
-    elif player_2_total > player_1_total:
-        print("{} is the winner with {} points to {}, {} points!  ".format(p2, player_2_total, p1, player_1_total))
-    else:
-        print("It's a TIE! Tied with {}".format(player_1_total))
+    print("The total scores are:\n {}: {}\n{}: {}".format(p1, player_1_total, p2, player_2_total))
 
+# def winner(player_1, player)
 
-    # print("The total scores are:\n {}: {}\n{}: {}".format(p1, player_1_total, p2, player_2_total))
-    
 if __name__ == "__main__":
     main()
 
