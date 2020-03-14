@@ -20,11 +20,12 @@ allergens = {
 allergyList = []
 
 def calculate():
-    sum = 0
+    total = 0
     for i in allergyList:
         if i in allergens:
-            total = sum(allergens.values())
-    print(total)
+            total += allergens[i]
+    print("The allergies you've listed are: {} \nYour total allergen score is {}".format(allergyList, total))
+    # print(total)
 
 
 def main():
