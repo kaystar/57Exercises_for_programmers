@@ -6,7 +6,7 @@ import random
 import time
 
 def guessingGame():
-    global guesses
+    guesses = 0
     while True:
         user_choice = int(input("I have my number, whats your guess?: \n"))
         if user_choice in past_guesses:
@@ -16,12 +16,13 @@ def guessingGame():
         if (user_choice == cpu_guess):
             print("Well done, you've guessed correctly in {} guesses" .format(guesses))
             time.sleep(2)
+            # convert to lambda function
             print("Your past guesses were {}" .format(past_guesses))
             time.sleep(2)
-            answer = input("Would you like to play again? [Yes/No]")
+            answer = input("Would you like to play again? [Yes/No]: ")
             if answer.lower() in ['y', 'yes']:
                 main()
-            elif answer.lower() in ['y', 'yes']:
+            elif answer.lower() in ['n', 'no']:
                 break
 
         elif (user_choice < cpu_guess):
@@ -57,7 +58,7 @@ def main():
 
     #max_no = 1
     guesses = 1
-    print("Let's plat Guess the Number.")
+    print("Let's play Guess the Number.")
     try:
         difficulty = int(input("Pick a difficulty level (1, 2, or 3): "))
     except ValueError:
